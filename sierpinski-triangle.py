@@ -5,15 +5,16 @@ import pygame
 import random
 
 # made by las-r on github
-# v1.0
+# v1.1
 
 # init
 pygame.init()
 
 # settings
 DW, DH = 1000, 1000
-TCX, TCY = DW // 2, DH // 2
 TSD = 400
+TCX = DW // 2
+TCY = int((DH + 0.5 * TSD) / 2)
 BGCOL = (0, 0, 0)
 TRICOL = (255, 255, 255)
 DOTCOL = (127, 127, 255)
