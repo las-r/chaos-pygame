@@ -10,3 +10,6 @@ Several different chaos game fractals shown using Pygame.
 ### Unnamed Fractals
 - [Pentagon Flower](https://github.com/las-r/chaos-pygame/blob/main/pentagon-flower.py)
 - [Pentagon Sponge](https://github.com/las-r/chaos-pygame/blob/main/pentagon-sponge.py)
+
+### Newly Discovered Fractals
+- [Counterclockwise Table](https://github.com/las-r/chaos-pygame/blob/main/counterclockwise-table.py)
