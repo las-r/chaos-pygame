@@ -5,7 +5,7 @@ import pygame
 import random
 
 # made by las-r on github
-# v1.1.1
+# v1.2
 
 # init
 pygame.init()
@@ -43,7 +43,7 @@ m = ((rx + rv[0]) // 2, (ry + rv[1]) // 2)
 
 # display
 scr = pygame.display.set_mode((DW, DH))
-pygame.display.set_caption("Sierpinski")
+pygame.display.set_caption("Sierpinski Triangle")
     
 # draw triangle
 scr.fill(BGCOL)
