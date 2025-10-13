@@ -1,11 +1,11 @@
-from shapely.geometry import Point
-from shapely.geometry.polygon import Polygon
+from shapely.geometry import Point # type: ignore
+from shapely.geometry.polygon import Polygon # type: ignore
 import math
 import pygame
 import random
 
 # made by las-r on github
-# v1.1
+# v1.1.1
 
 # init
 pygame.init()
