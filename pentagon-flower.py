@@ -5,7 +5,7 @@ import pygame
 import random
 
 # made by las-r on github
-# v1.1
+# v1.1.1
 
 # init
 pygame.init()
@@ -54,9 +54,7 @@ while run:
         if e.type == pygame.QUIT:
             run = False
         elif e.type == pygame.KEYDOWN:
-            if e.key == pygame.K_SPACE:
-                psd = not psd
-            elif e.key == pygame.K_r:
+            if e.key == pygame.K_r:
                 scr.fill(BGCOL)
                 
     # find and draw point
