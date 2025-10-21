@@ -5,7 +5,7 @@ import pygame
 import random
 
 # made by las-r on github
-# v1.0
+# v1.1
 
 # init
 pygame.init()
@@ -17,6 +17,7 @@ CX, CY = DW // 2, DH // 2
 BGCOL = (0, 0, 0)
 PCOL = (255, 255, 255)
 DOTCOL = (127, 127, 255)
+PPF = 512
 
 # variables
 psd = False
@@ -35,9 +36,8 @@ p = Polygon(v)
 scr = pygame.display.set_mode((DW, DH))
 pygame.display.set_caption("Pentagon Flower")
 
-# draw inital pentagon
-pygame.draw.polygon(scr, PCOL, v, 1)
-pygame.display.flip()
+# draw background color
+scr.fill(BGCOL)
 
 # generate inital point
 p = p.representative_point()
@@ -58,15 +58,14 @@ while run:
                 psd = not psd
             elif e.key == pygame.K_r:
                 scr.fill(BGCOL)
-                pygame.draw.polygon(scr, PCOL, v, 1)
-                pygame.display.flip()
                 
     # find and draw point
-    if not psd:
+    for _ in range(PPF):
         rv = random.choice(v)
         while rv == pv:
             rv = random.choice(v)
         pv = rv
         m = ((m[0] + rv[0]) // 2, (m[1] + rv[1]) // 2)
         scr.set_at(m, DOTCOL)
-        pygame.display.flip()
+    pygame.draw.polygon(scr, PCOL, v, 1)
+    pygame.display.flip()
