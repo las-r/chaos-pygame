@@ -2,7 +2,7 @@ import pygame
 import random
 
 # made by las-r on github
-# v1.0
+# v1.1
 
 # init
 pygame.init()
@@ -14,28 +14,19 @@ SQS = 800
 BGCOL = (0, 0, 0)
 SQCOL = (255, 255, 255)
 DOTCOL = (127, 127, 255)
+PPF = 512
 
 # variables
 psd = False
 
 # vertices and center
-T = CY - SQS // 2
-B = CY + SQS // 2
-L = CX - SQS // 2
-R = CX + SQS // 2
-v = [(L, T),
-      (R, T),
-      (L, B),
-      (R, B)]
-
+T, B = CY - SQS // 2, CY + SQS // 2
+L, R = CX - SQS // 2, CX + SQS // 2
+v = [(L, T), (R, T), (L, B), (R, B)]
 
 # display
 scr = pygame.display.set_mode((DW, DH))
 pygame.display.set_caption(("Counterclockwise Table"))
-
-# draw initial square
-pygame.draw.rect(scr, SQCOL, (CX - SQS // 2, CY - SQS // 2, SQS, SQS), 1)
-pygame.display.flip()
 
 # initial point
 rx = random.randint(L, R)
@@ -53,15 +44,11 @@ while run:
         if e.type == pygame.QUIT:
             run = False
         elif e.type == pygame.KEYDOWN:
-            if e.key == pygame.K_SPACE:
-                psd = not psd
-            elif e.key == pygame.K_r:
+            if e.key == pygame.K_r:
                 scr.fill(BGCOL)
-                pygame.draw.rect(scr, SQCOL, (CX - SQS // 2, CY - SQS // 2, SQS, SQS), 1)
-                pygame.display.flip()
-                
+    
     # find and draw point
-    if not psd:
+    for _ in range(PPF):
         rv = random.choice(v)
         while rv == v[(v.index(pv) + 1) % 4]:
             rv = random.choice(v)
@@ -69,4 +56,5 @@ while run:
         rx = (rx + rv[0]) // 2
         ry = (ry + rv[1]) // 2
         scr.set_at((rx, ry), DOTCOL)
-        pygame.display.flip()
+    pygame.draw.rect(scr, SQCOL, (CX - SQS // 2, CY - SQS // 2, SQS, SQS), 1)
+    pygame.display.flip()
