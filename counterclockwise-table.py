@@ -2,7 +2,7 @@ import pygame
 import random
 
 # made by las-r on github
-# v1.1
+# v1.1.1
 
 # init
 pygame.init()
@@ -27,6 +27,9 @@ v = [(L, T), (R, T), (L, B), (R, B)]
 # display
 scr = pygame.display.set_mode((DW, DH))
 pygame.display.set_caption(("Counterclockwise Table"))
+
+# draw bg color
+scr.fill(BGCOL)
 
 # initial point
 rx = random.randint(L, R)
