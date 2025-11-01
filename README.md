@@ -1,3 +1,6 @@
+<img width="500" alt="Screenshot showing the Counterclockwise Table fracta." src="https://github.com/user-attachments/assets/39adb2cc-de4f-4f97-84f0-938d841979f4" />
+
+
 # Chaos Pygame
 Several different chaos game fractals shown using Pygame.
 
