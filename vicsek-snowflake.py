@@ -2,7 +2,7 @@ import pygame
 import random
 
 # made by las-r on github
-# v1.0
+# v1.1
 
 # init
 pygame.init()
@@ -14,6 +14,7 @@ SQS = 800
 BGCOL = (0, 0, 0)
 SQCOL = (255, 255, 255)
 DOTCOL = (127, 127, 255)
+PPF = 512
 
 # variables
 psd = False
@@ -34,10 +35,6 @@ vm = [(L, T),
 scr = pygame.display.set_mode((DW, DH))
 pygame.display.set_caption(("Vicsek Snowflake"))
 
-# draw initial square
-pygame.draw.rect(scr, SQCOL, (CX - SQS // 2, CY - SQS // 2, SQS, SQS), 1)
-pygame.display.flip()
-
 # initial point
 rx = random.randint(L, R)
 ry = random.randint(T, B)
@@ -53,17 +50,16 @@ while run:
         if e.type == pygame.QUIT:
             run = False
         elif e.type == pygame.KEYDOWN:
-            if e.key == pygame.K_SPACE:
-                psd = not psd
-            elif e.key == pygame.K_r:
+            if e.key == pygame.K_r:
                 scr.fill(BGCOL)
                 pygame.draw.rect(scr, SQCOL, (CX - SQS // 2, CY - SQS // 2, SQS, SQS), 1)
                 pygame.display.flip()
                 
     # find and draw point
-    if not psd:
+    for _ in range(PPF):
         rv = random.choice(vm)
         rx = int((rx / 3) + (2 / 3) * rv[0])
         ry = int((ry / 3) + (2 / 3) * rv[1])
         scr.set_at((rx, ry), DOTCOL)
-        pygame.display.flip()
+    pygame.draw.rect(scr, SQCOL, (CX - SQS // 2, CY - SQS // 2, SQS, SQS), 1)
+    pygame.display.flip()
